@@ -1,8 +1,13 @@
 import { Profile } from 'components/Profile/Profile';
+import { Statistics } from 'components/Statistics/Statistics';
+import { FriendList } from 'components/FriendList/FriendList';
+import { TransactionsHistory } from 'components/TransactionsHistory/TransactionsHistory';
 
-import userData from 'components/Profile/user.json';
+import userData from 'data/user.json';
+import statisticsData from 'data/data.json';
+import friendsData from 'data/friends.json';
+import transactionsData from 'data/transactions.json';
 
-// const { username, tag, location, avatar, stats } = userData;
 
 export const App = () => {
   return (
@@ -16,8 +21,10 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
       <Profile {...userData} />
+      <Statistics title={'Upload stats'} elements={statisticsData} />
+      <FriendList friends={friendsData} />
+      <TransactionsHistory items={transactionsData} />
     </div>
   );
 };

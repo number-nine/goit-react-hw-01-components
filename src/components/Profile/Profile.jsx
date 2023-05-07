@@ -1,10 +1,12 @@
-
-
-
-//Profile {name:string, tag:string, location:string, avatar:string, stats:obj}
-
 import PropTypes from 'prop-types';
 import { ProfileStats } from 'components/ProfileStats/ProfileStats';
+import {
+  ProfileCard,
+  ProfileDescription,
+  Avatar,
+  UserName,
+  UserData,
+} from 'components/Profile/Profile.styled';
 
 export const Profile = ( {
     username = 'James Bond',
@@ -15,15 +17,15 @@ export const Profile = ( {
   },
 ) => {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <ProfileCard>
+      <ProfileDescription>
+        <Avatar src={avatar} alt="User avatar"/>
+        <UserName>{username}</UserName>
+        <UserData>@{tag}</UserData>
+        <UserData>{location}</UserData>
+      </ProfileDescription>
           <ProfileStats {...stats} />
-    </div>
+    </ProfileCard>
   );
 };
 

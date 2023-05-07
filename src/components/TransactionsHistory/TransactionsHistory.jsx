@@ -2,15 +2,19 @@ import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import { Transaction } from 'components/Transaction/Transaction';
+import {
+  TransactionsTable,
+  TableHeader,
+} from 'components/TransactionsHistory/TransactionHistory.styled';
 
 export const TransactionsHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
+    <TransactionsTable>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TableHeader>Type</TableHeader>
+          <TableHeader>Amount</TableHeader>
+          <TableHeader>Currency</TableHeader>
         </tr>
       </thead>
 
@@ -21,10 +25,12 @@ export const TransactionsHistory = ({ items }) => {
           </Fragment>
         ))}
       </tbody>
-    </table>
+    </TransactionsTable>
   );
 };
 
 TransactionsHistory.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
 };

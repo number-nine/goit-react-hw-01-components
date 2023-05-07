@@ -1,13 +1,16 @@
-//StatisticsElement {label: string, percentage:number}
-
 import PropTypes from 'prop-types';
+
+import {
+  StatsItem,
+  StatText
+} from 'components/StatisticsElement/StatisticsElement.styled';
 
 export const StatisticsElement = ({ label = '.*', percentage = 0 }) => {
   return (
-    <li className="item">
-      <span className="label">{label}</span>
-      <span className="percentage">{percentage}%</span>
-    </li>
+    <StatsItem>
+      <StatText>{label}</StatText>
+      <StatText>{percentage}%</StatText>
+    </StatsItem>
   );
 };
 

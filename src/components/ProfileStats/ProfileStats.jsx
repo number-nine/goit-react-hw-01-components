@@ -1,22 +1,27 @@
-//ProfileStats{followers:number, views:number, likes:number}
 import PropTypes from 'prop-types';
+import {
+  StatsContainer,
+  StatItem,
+  StatLabel,
+  StatData,
+} from 'components/ProfileStats/ProfileStats.styled';
 
 export const ProfileStats = ({ followers = 0, views = 0, likes = 0 }) => {
   return (
-    <ul className="stats">
-      <li>
-        <span className="label">Followers</span>
-        <span className="quantity">{followers}</span>
-      </li>
-      <li>
-        <span className="label">Views</span>
-        <span className="quantity">{views}</span>
-      </li>
-      <li>
-        <span className="label">Likes</span>
-        <span className="quantity">{likes}</span>
-      </li>
-    </ul>
+    <StatsContainer>
+      <StatItem>
+        <StatLabel>Followers</StatLabel>
+        <StatData>{followers}</StatData>
+      </StatItem>
+      <StatItem>
+        <StatLabel>Views</StatLabel>
+        <StatData>{views}</StatData>
+      </StatItem>
+      <StatItem>
+        <StatLabel>Likes</StatLabel>
+        <StatData>{likes}</StatData>
+      </StatItem>
+    </StatsContainer>
   );
 };
 

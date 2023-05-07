@@ -1,14 +1,15 @@
-//FriendListItem {avatar:string, name:string, isOnline:boolean}
+import { ListItem, Avatar, Name, Status } from 'components/FriendListItem/FriendListItem.styled';
+
 
 import PropTypes from 'prop-types';
 
 export const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
-    <li className="item">
-      <span className="status">{isOnline}</span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
-    </li>
+    <ListItem>
+      <Status status={isOnline}></Status>
+      <Avatar src={avatar} alt="User avatar" width="48" />
+      <Name>{name}</Name>
+    </ListItem>
   );
 };
 
